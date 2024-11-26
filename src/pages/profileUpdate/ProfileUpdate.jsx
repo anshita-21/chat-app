@@ -3,7 +3,11 @@ import './ProfileUpdate.css'
 
 const ProfileUpdate = () => {
   return (
-    <div>ProfileUpdate</div>
+    <div className="profile">
+      <div className="profile-container">
+        
+      </div>
+    </div>
   )
 }
 

@@ -1,6 +1,6 @@
 .login{
     min-height: 100vh;
-    background: url(/background.png) no-repeat;
+    background: url(/bg-3.png) no-repeat;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -8,9 +8,10 @@
 }
 .login .logo{
     width: max(20vw, 200px);
+    
 }
 .login-form{
-    background: white;
+    background: #8FD4D9;
     padding: 20px 30px;
     display: flex;
     flex-direction: column;
@@ -23,7 +24,7 @@
 }
 .login-form input{
     padding: 8px 10px;
-    border: 1px solid beige;
+    border: 1px solid #8FD4D9;
     border-radius: 4px;
     outline-color: #077EFF;
 }

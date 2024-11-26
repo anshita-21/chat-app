@@ -1,7 +1,11 @@
 .ls{
-    background: #001030;
-    color: white;
+    /* background: #001030; */
+    background-color: rgba(6, 17, 70, 0.6);
+    color: #fff;
+    /* color: white; */
     height: 75vh;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .ls-top{
     padding: 20px;
@@ -20,12 +24,13 @@
     cursor: pointer;
 }
 .ls-search{
-    background-color: #002670;
+    background-color: #0f2145;
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 10px 12px;
     margin-top: 20px;
+    border-radius: 5px;
 }
 .ls-search img{
     width: 16px;
@@ -38,7 +43,7 @@
     font-size: 11px;
 }
 .ls-search input::placeholder{
-    color: #c8c8c8;
+    color: #e7f1f7;
 }
 .ls-list{
     display: flex;
@@ -64,12 +69,40 @@
     flex-direction: column;
 }
 .friends span{
-    color: #9f9f9f;
+    color: #98d3fb;
     font-size: 11px;
 }
 .friends:hover{
-    background-color: #077eff;
+    background-color: #0f2145;
 }
 .friends:hover span{
     color: white;
+}
+.ls-nav .menu{
+    position: relative;
+    padding: 10px 0px;
+}
+.menu .sub-menu{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 130px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    display: none;
+}
+.sub-menu hr{
+    border: none;
+    height: 1px;
+    background: #a4a4a4;
+    margin: 8px 0px;
+}
+.sub-menu p{
+    cursor: pointer;
+    font-size: 14px;
+}
+.menu:hover .sub-menu{
+    display: block;
 }

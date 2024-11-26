@@ -14,10 +14,10 @@ const Login = () => {
         <form className='login-form'>
           <h2>{currState}</h2> 
           {currState === "Sign Up"
-          ? <input type="text" placeholder='username' className="form-input" required/>
+          ? <input type="text" placeholder='Username' className="form-input" required/>
           : null}
-          <input type="email" placeholder='email address' className="form-input" required/>
-          <input type="password" placeholder='password' className="form-input" required/>
+          <input type="email" placeholder='Email address' className="form-input" required/>
+          <input type="password" placeholder='Password' className="form-input" required/>
           <button type='submit'>{ currState === "Sign Up" ? "Create account" : "Login here"}</button>
           <div className="login-term">
             <input type='checkbox'/>
