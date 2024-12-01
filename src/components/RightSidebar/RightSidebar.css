@@ -1,7 +1,8 @@
 .rs{
     color: white;
     background: #001030;
-    background-color: rgba(8, 21, 88, 0.2);
+    /* background-color: rgba(8, 21, 88, 0.2); */
+    background-color: rgba(6, 17, 70, 0.6);
     color: #fff;
     position: relative;
     height: 75vh;
@@ -73,4 +74,9 @@
     padding: 10px 65px;
     border-radius: 20px;
     cursor: pointer;
+}
+@media (max-width:900px){
+    .rs{
+        display: none;
+    }
 }

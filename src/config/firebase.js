@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { getFirestore, setDoc, doc } from "firebase/firestore";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail } from "firebase/auth";
+import { getFirestore, setDoc, doc, collection, query, where, getDocs } from "firebase/firestore";
 import { toast } from "react-toastify";
 
 const firebaseConfig = {
@@ -31,7 +31,7 @@ const signup = async (username, email, password) => {
             lastSeen: Date.now()
         })
         await setDoc(doc(db, "chats", user.uid), {
-            chatData:[]
+            chatsData:[]
         })
     } catch (error) {
         console.error(error)
@@ -58,4 +58,26 @@ const logout = async () => {
     }
 }
 
-export {signup, login, logout, auth, db}
+const resetPass = async (email) => {
+    if(!email){
+        toast.error("enter your email");
+        return null;
+    }
+    try{
+        const userRef = collection(db ,'users');
+        const q = query(userRef, where("email", "==", email))
+        const querySnap = await getDocs(q);
+        if(!querySnap.empty){
+            await sendPasswordResetEmail(auth, email);
+            toast.success("reset password link sent to your email");
+        }
+        else{
+            toast.error("email not found");
+        }
+    }catch(error){
+        console.error(error);
+        toast.error(error.message);
+    }
+}
+
+export {signup, login, logout, auth, db, resetPass}

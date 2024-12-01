@@ -56,3 +56,54 @@
     cursor: pointer;
     color: #077EFF;
 }
+@media (max-width: 768px) {
+    .login{
+        flex-direction: column;
+        justify-content: center;
+        gap:30px;
+    }
+}
+/* 
+@media (max-width: 768px) {
+    .login {
+        justify-content: center;
+    }
+    .login .logo {
+        display: none;
+    }
+
+    .login-form {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .login-form input,
+    .login-form button {
+        padding: 10px;
+    }
+
+    .login-term {
+        font-size: 10px;
+    }
+
+    .login-toggle {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .login-form {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .login-form input,
+    .login-form button {
+        padding: 12px;
+    }
+
+    .login-term {
+        font-size: 10px;
+    }
+} */
