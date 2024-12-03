@@ -115,7 +115,8 @@ const ChatBox = () => {
   return chatUser ? (
     <div className={`chat-box ${chatVisible?"":"hidden"}`}>
         <div className="chat-user">
-            <img src={chatUser.userData.avatar} alt="" />
+            {/* <img src={chatUser.userData.avatar} alt="" /> */}
+            <img src={assets.avatar_icon} alt="" />
             <p>{chatUser.userData.name}{Date.now()-chatUser.userData.lastSeen <= 70000? <img className='dot' src={assets.green_dot} alt=""/>: null}</p>
             <img src={assets.help_icon} alt="" className="help" />
             <img onClick={()=>setChatVisible(false)} src={assets.arrow_icon} alt="" className="arrow" />
@@ -129,7 +130,8 @@ const ChatBox = () => {
               {msg.text}
             </p>
             <div>
-              <img src={msg.sId === userData.id ? userData.avatar : chatUser.userData.avatar} alt="" />
+              {/* <img src={msg.sId === userData.id ? userData.avatar : chatUser.userData.avatar} alt="" /> */}
+              <img src={assets.avatar_icon} alt="" />
               <p>{convertTimestamp(msg.createdAt)}</p>
             </div>  
           </div>
@@ -142,7 +144,7 @@ const ChatBox = () => {
           <input onChange={(e)=>setInput(e.target.value)} value={input} type="text" placeholder='Send a message...' />
           <input onChange={sendImage} type="file" id='image' accept='image/png , image/jpeg' hidden />
           <label htmlFor="image">
-            <img src={assets.gallery_icon} alt="" />
+            {/* <img src={assets.gallery_icon} alt="" /> */}
           </label>
           <img onClick={() => sendMessage(input, messagesId)} src={assets.send_button} alt="" />
         </div>

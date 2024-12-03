@@ -17,6 +17,7 @@ const ProfileUpdate = () => {
   const [uid, setUid] = useState("");
   const [prevImage, setPrevImage] = useState(""); 
   const { setUserData } = useContext(AppContext);
+  
 
   const profileUpdate = async (event) => {
     event.preventDefault();
@@ -87,10 +88,11 @@ const ProfileUpdate = () => {
               hidden
             />
             <img
-              src={image ? URL.createObjectURL(image) : prevImage || assets.avatar_icon}
+              // src={image ? URL.createObjectURL(image) : prevImage || assets.avatar_icon}
+              src={assets.avatar_icon}
               alt="Profile Avatar"
             />
-            <p>Upload profile image</p>
+            {/* <p>Upload profile image</p> */}
           </label>
 
           <input
@@ -113,7 +115,8 @@ const ProfileUpdate = () => {
 
         <img
           className="profile-pic"
-          src={image ? URL.createObjectURL(image) : prevImage || assets.logo_icon}
+          // src={image ? URL.createObjectURL(image) : prevImage || assets.logo_icon}
+          src={assets.avatar_icon}
           alt="Profile Preview"
         />
       </div>
