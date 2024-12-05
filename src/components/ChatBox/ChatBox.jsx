@@ -5,12 +5,15 @@ import { AppContext } from '../../context/AppContext'
 import { arrayUnion, doc, onSnapshot, updateDoc, getDoc, Timestamp } from 'firebase/firestore'
 import { db } from '../../config/firebase'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 const ChatBox = () => {
 
   const {userData, messagesId, chatUser, messages, setMessages, chatVisible, setChatVisible} = useContext(AppContext)
 
   const [input, setInput] = useState("");
+  
+  const navigate=useNavigate();
   const sendMessage = async (input, messagesId) => {
     try{
       if(input && messagesId){
@@ -118,7 +121,7 @@ const ChatBox = () => {
             {/* <img src={chatUser.userData.avatar} alt="" /> */}
             <img src={assets.avatar_icon} alt="" />
             <p>{chatUser.userData.name}{Date.now()-chatUser.userData.lastSeen <= 70000? <img className='dot' src={assets.green_dot} alt=""/>: null}</p>
-            <img src={assets.help_icon} alt="" className="help" />
+            <img onClick={()=>navigate('/profile')} src={assets.help_icon} alt="" className="help" style={{ cursor: 'pointer' }}/>
             <img onClick={()=>setChatVisible(false)} src={assets.arrow_icon} alt="" className="arrow" />
         </div>
 

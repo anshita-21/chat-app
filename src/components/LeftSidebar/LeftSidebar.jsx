@@ -6,6 +6,7 @@ import {  arrayUnion, collection, getDocs, query, serverTimestamp, setDoc,update
 import { db } from '../../config/firebase'
 import { AppContext } from '../../context/AppContext'
 import { toast } from 'react-toastify'
+import { logout } from '../../config/firebase'
 
 const LeftSidebar = () => {
 
@@ -134,7 +135,7 @@ const LeftSidebar = () => {
                     <div className="sub-menu">
                         <p onClick={()=>navigate('/profile')}>Edit profile</p>
                         <hr />
-                        <p>logout</p>
+                        <p onClick={()=>logout()}>logout</p>
                     </div>
                 </div>
             </div>
