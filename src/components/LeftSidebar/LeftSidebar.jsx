@@ -15,36 +15,38 @@ const LeftSidebar = () => {
     const [showSearch, setShowSearch] = useState(false); 
 
     const inputHandler = async (e) => {
-        try{
-            const input = e.target.value;
-            if(input){
-                setShowSearch(true);
-                const userRef = collection(db, 'users');
-                const q = query(userRef, where("username", "==", input.toLowerCase()))
-                const querySnap = await getDocs(q);
-                if(!querySnap.empty && querySnap.docs[0].data().id !== userData.id){
-                    let userExists = false
-                    chatData.map((user) => {
-                        if(user.rId === querySnap.docs[0].data().id){
-                            userExists = true;
-                        }
-                    })
-                    if(!userExists){
-                        setUser(querySnap.docs[0].data());     
-                    }
-                    // setShowSearch(true);
-                }
-                else{
-                    setUser(null);
-                }
-            }
-            else{
-                setShowSearch(false);
-            }
-        }catch(error){
+    try {
+        const input = e.target.value;
+        if (input) {
+            setShowSearch(true);
+            const userRef = collection(db, 'users');
 
+            // Searching case-insensitively by converting both to lowercase
+            const q = query(userRef, where("username", ">=", input.toLowerCase()), where("username", "<=", input.toLowerCase() + '\uf8ff'));
+            const querySnap = await getDocs(q);
+
+            if (!querySnap.empty && querySnap.docs[0].data().id !== userData.id) {
+                let userExists = false;
+                chatData.map((user) => {
+                    if (user.rId === querySnap.docs[0].data().id) {
+                        userExists = true;
+                    }
+                });
+
+                if (!userExists) {
+                    setUser(querySnap.docs[0].data());
+                }
+            } else {
+                setUser(null);
+            }
+        } else {
+            setShowSearch(false);
         }
+    } catch (error) {
+        console.error(error);
     }
+};
+
 
     const addChat = async () => {
         const messagesRef = collection(db, 'messages');
@@ -125,7 +127,8 @@ const LeftSidebar = () => {
     <div className={`ls ${chatVisible? "hidden": ""}`}>
         <div className="ls-top">
             <div className="ls-nav">
-                <img src={assets.logo} className='logo' alt=""></img>
+                <img src={assets.logo_icon} className='logo' alt="" ></img>
+                <p>{userData.name}</p>
                 <div className="menu">
                     <img src={assets.menu_icon} alt=""></img>
                     <div className="sub-menu">

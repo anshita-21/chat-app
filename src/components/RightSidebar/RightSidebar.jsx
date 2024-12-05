@@ -29,7 +29,7 @@ const RightSidebar = () => {
       </div>
       <hr />
       <div className="rs-media">
-        <p>media</p>
+        {/* <p>media</p> */}
         <div>
           {msgImages.map((url,index)=>(<img onClick={()=> window.open(url)} key={index} src={url} alt=''/>))}
           {/* <img src={assets.pic1} alt="" />
@@ -46,6 +46,7 @@ const RightSidebar = () => {
   : (
     <div className="rs">
       <button onClick={()=>logout()}>Logout</button>
+      
     </div>
   )
 }

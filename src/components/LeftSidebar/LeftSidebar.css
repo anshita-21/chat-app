@@ -16,7 +16,11 @@
     align-items: center;
 }
 .ls-nav .logo{
-    max-width: 140px;
+    max-width: 40px;
+}
+.ls-nav p{
+    font-size: 24px;
+    font-weight: 500;
 }
 .ls-nav .menu img{
     max-height: 20px;
