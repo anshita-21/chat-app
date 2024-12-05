@@ -25,7 +25,7 @@ const signup = async (username, email, password) => {
             id:user.uid,
             username:username.toLowerCase(),
             email,
-            name:"",
+            name: username || "",
             avatar:"",
             bio:"hey using chatapp",
             lastSeen: Date.now()

@@ -128,7 +128,7 @@ const LeftSidebar = () => {
         <div className="ls-top">
             <div className="ls-nav">
                 <img src={assets.logo_icon} className='logo' alt="" ></img>
-                <p>{userData.name}</p>
+                <p>{userData.username}</p>
                 <div className="menu">
                     <img src={assets.menu_icon} alt=""></img>
                     <div className="sub-menu">
